@@ -37,9 +37,7 @@ Route::middleware(['frontend_setlang'])->group(function () {
         // Faqs
         Route::get('/faqs', [FrontendController::class, 'faqs'])->name('faqs');
         // account and
-        Route::middleware(['auth:customer'])->group(function () {
-            Route::get('my-account', [FrontendController::class, 'myaccount'])->name('myaccount');
-        });
+
         // customer multui-guard auth
         // Route::get("/customer-login", [FrontendController::class, 'customerlogin'])->name('customerlogin');
 
@@ -58,15 +56,22 @@ Route::middleware(['frontend_setlang'])->group(function () {
         // Route::post("/customer-register", [FrontendController::class, 'customerregisterpage'])->name('customerregisterpage');
 
         //wishlist,cart,order,checkout
-        Route::get('/wishlist', [FrontendController::class, 'wistlist'])->middleware('auth:customer')->name('wishlist');
-        Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
-        Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
-        Route::get('/order', [FrontendController::class, 'order'])->name('order');
+
+        Route::group(['middleware'=> ['auth']], function(){
+
+            Route::get('my-account', [FrontendController::class, 'myaccount'])->name('myaccount');
+
+            Route::get('/wishlist', [FrontendController::class, 'wistlist'])->name('wishlist');
+            Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
+            Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
+            Route::get('/order', [FrontendController::class, 'order'])->name('order');
 
 
 
-        Route::post('/wish', [FrontendController::class, 'wishlisStore'])->middleware('auth:customer')->name('wishlist.customer');
-        Route::post('/wish-rm/{wishlist}', [FrontendController::class, 'wishlisStorerm'])->name('wishlist.customerrm');
+            Route::post('/wish', [FrontendController::class, 'wishlisStore'])->name('wishlist.customer');
+            Route::post('/wish-rm/{wishlist}', [FrontendController::class, 'wishlisStorerm'])->name('wishlist.customerrm');
+
+        });
     });
 
 

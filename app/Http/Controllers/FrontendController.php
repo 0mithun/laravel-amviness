@@ -348,6 +348,8 @@ class FrontendController extends Controller
     {
         // return auth('customer')->id();
 
+
+
         $wishlists = Wishlist::with('product')->latest()->get();
         return view('frontend.wishlist', compact('wishlists'));
     }

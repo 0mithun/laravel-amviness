@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('frontend_css')
-    
+
 @endsection
 
 @section('frontend_content')
@@ -11,7 +11,7 @@
     <nav class="breadcrumb-nav">
         <div class="container">
             <ul class="breadcrumb bb-no">
-                <li><a href=" {{ route('frontend.home') }} ">Home</a></li>
+                <li><a href=" {{ route('home') }} ">Home</a></li>
                 <li><a href=" {{ route('frontend.shop') }} ">Shop</a></li>
                 <li>8 Columns</li>
             </ul>
@@ -37,7 +37,7 @@
         <div class="main-content">
             <nav class="toolbox sticky-toolbox sticky-content fix-top">
                 <div class="toolbox-left">
-                    <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
+                    <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle
                         btn-icon-left"><i class="w-icon-category"></i><span>Filters</span></a>
                     <div class="toolbox-item toolbox-sort select-box text-dark">
                         <label>Sort By :</label>
@@ -87,9 +87,9 @@
                                 <form action="{{ route('frontend.wishlist.customer') }}" method="POST">
                                     @csrf
 
-                                    @if (auth('customer')->check())
+                                    @if (auth()->check())
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                        <input type="hidden" name="user_id" value="{{ auth('customer')->user()->id }}">
+                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                     @endif
                                     <button class="btn--fav" type="submit">
                                         @if ($exist)
@@ -277,5 +277,5 @@
 
 
 @section('frontend_js')
-    
+
 @endsection

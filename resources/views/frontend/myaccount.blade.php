@@ -25,7 +25,7 @@ crossorigin="anonymous">
         <nav class="breadcrumb-nav">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href=" {{ route('frontend.home') }} ">Home</a></li>
+                    <li><a href=" {{ route('home') }} ">Home</a></li>
                     <li>My account</li>
                 </ul>
             </div>
@@ -63,9 +63,9 @@ crossorigin="anonymous">
                         <div class="tab-pane active in" id="account-dashboard">
                             <p class="greeting">
                                 Hello
-                                <span class="text-dark font-weight-bold"> {{ auth()->guard('customer')->user()->name }} </span>
+                                <span class="text-dark font-weight-bold"> {{ auth()->user()->name }} </span>
                                 (not
-                                <span class="text-dark font-weight-bold">{{ auth()->guard('customer')->user()->name }}</span>?
+                                <span class="text-dark font-weight-bold">{{ auth()->user()->name }}</span>?
                                 <a href="#" class="text-primary">Log out</a>)
                             </p>
 
@@ -383,7 +383,7 @@ crossorigin="anonymous">
                                     <input type="email" id="email_1" name="email_1"
                                         class="form-control form-control-md">
                                 </div>
-                              
+
                                 <h4 class="title title-password ls-25 font-weight-bold">Password change</h4>
                                 <div class="form-group">
                                     <label class="text-dark" for="cur-password">Current Password leave blank to leave unchanged</label>

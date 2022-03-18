@@ -62,7 +62,7 @@
                                                     alt="Bright Green IPhone" width="488" height="549">
                                             </figure>
                                         </div>
-    
+
                                     @endforeach
 
 
@@ -91,7 +91,7 @@
                                     </div>
                                     @foreach ($product->galleries as $gallery)
                                         <div class="product-thumb swiper-slide">
-                                                                    
+
                                             {{-- <td class="sorting_1 text-center" tabindex="0"><img width="5px"
                                                 height="5px" src="{{ asset($product->image) }}"
                                                 class="rounded" alt="Product Image"></td> --}}
@@ -99,7 +99,7 @@
 
                                             <img src="{{ asset($gallery->image) }}" alt="Product Thumb"
                                                 width="800" height="900">
-                                                
+
                                         </div>
                                     @endforeach
                                 </div>
@@ -186,12 +186,12 @@
                                 <div class="product-link-wrapper d-flex">
                                     <form action="{{ route('frontend.wishlist.customer') }}" method="POST">
                                         @csrf
-    
-                                        @if (auth('customer')->check())
+
+                                        @if (auth()->check())
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <input type="hidden" name="user_id" value="{{ auth('customer')->user()->id }}">
+                                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                         @endif
-                                        
+
                                         <button class="cour" type="submit" style="cursor: pointer;">
                                             @if ($exist)
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

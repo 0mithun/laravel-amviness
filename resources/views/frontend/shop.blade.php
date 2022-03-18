@@ -6,7 +6,7 @@
     <nav class="breadcrumb-nav">
         <div class="container">
             <ul class="breadcrumb bb-no">
-                <li><a href="{{ route('frontend.home') }}">Home</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li>Shop</li>
             </ul>
         </div>
@@ -190,7 +190,7 @@
                 <div class="main-content">
                     <nav class="toolbox sticky-toolbox sticky-content fix-top">
                         <div class="toolbox-left">
-                            <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
+                            <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle
                                 btn-icon-left d-block d-lg-none"><i
                                     class="w-icon-category"></i><span>Filters</span></a>
                             <div class="toolbox-item toolbox-sort select-box text-dark">
@@ -241,12 +241,12 @@
                                             title="Add to cart"></a>
                                         <form action="{{ route('frontend.wishlist.customer') }}" method="POST">
                                             @csrf
-        
-                                            @if (auth('customer')->check())
+
+                                            @if (auth()->check())
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <input type="hidden" name="user_id" value="{{ auth('customer')->user()->id }}">
+                                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                             @endif
-                                            
+
                                             <button class="cour" type="submit" style="cursor: pointer;">
                                                 @if ($exist)
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -291,7 +291,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     @endforeach
                     </div>
 

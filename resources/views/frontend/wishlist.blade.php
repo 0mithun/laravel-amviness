@@ -24,7 +24,7 @@
     <!-- Start of PageContent -->
     <div class="page-content">
         <div class="container">
-            <h3 class="wishlist-title">My wishlist ({{ auth()->guard('customer')->user()->name }}) </h3>
+            <h3 class="wishlist-title">My wishlist ({{ auth()->user()->name }}) </h3>
             <table class="shop-table wishlist-table">
                 <thead>
                     <tr>
@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                     @foreach ($wishlists as $wishlist)
-                        @if ($wishlist->user_id === auth()->guard('customer')->user()->id)
+                        @if ($wishlist->user_id === auth()->user()->id)
                             <tr>
                                 <td class="product-thumbnail">
                                     <div class="p-relative">
@@ -80,7 +80,7 @@
                 </tbody>
             </table>
             <br>
-            {{-- @if ($wishlist->user_id === auth()->guard('customer')->user()->id) --}}
+            {{-- @if ($wishlist->user_id === auth()->user()->id) --}}
                 {{-- {{ $wishlists->links() }} --}}
             {{-- @endif --}}
             <div class="social-links">

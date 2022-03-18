@@ -16,7 +16,7 @@
     <nav class="breadcrumb-nav">
         <div class="container">
             <ul class="breadcrumb bb-no">
-                <li><a href=" {{ route('frontend.home') }} ">Home</a></li>
+                <li><a href=" {{ route('home') }} ">Home</a></li>
                 <li><a href=" {{ route('frontend.blog') }} ">Blog</a></li>
                 <li>Blog Single</li>
             </ul>
@@ -76,7 +76,7 @@
                                 <span class="nav-content mb-0 text-normal">Vivamus vestibulum ntulla nec ante</span>
                             </a>
                         </div>
-                        <div class="nav nav-next"> 
+                        <div class="nav nav-next">
                             <a href="#" class="align-items-end text-right">
                                 <span>next post<i class="w-icon-long-arrow-right"></i></span>
                                 <span class="nav-content mb-0 text-normal">Fusce lacinia arcuet nulla</span>
@@ -128,7 +128,7 @@
                         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                     </div>
                     <!-- End Related Posts -->
-                    
+
                     <h4 class="title title-lg font-weight-bold pt-1 mt-10">3 Comments</h4>
                     <ul class="comments list-style-none pl-0">
                         <li class="comment">
@@ -255,7 +255,7 @@
                                 <div class="widget-body">
                                     <p class="text-default mb-0">Fringilla urna porttitor rhoncus dolor purus.
                                         Luctus veneneratis lectus magna fring.
-                                        Suspendisse potenti. Sed egestas, ante et 
+                                        Suspendisse potenti. Sed egestas, ante et
                                         vulputate volutpat, uctus metus libero.</p>
                                 </div>
                             </div>

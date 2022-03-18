@@ -10,7 +10,7 @@
     <nav class="breadcrumb-nav">
         <div class="container">
             <ul class="breadcrumb bb-no">
-                <li><a href="{{ route('frontend.home') }}">Home</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li>Shop</li>
             </ul>
         </div>
@@ -194,7 +194,7 @@
                 <div class="main-content">
                     <nav class="toolbox sticky-toolbox sticky-content fix-top">
                         <div class="toolbox-left">
-                            <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
+                            <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle
                                 btn-icon-left d-block d-lg-none"><i
                                     class="w-icon-category"></i><span>Filters</span></a>
                             <div class="toolbox-item toolbox-sort select-box text-dark">
@@ -260,7 +260,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     @endforeach
                     </div>
 
@@ -300,5 +300,5 @@
 
 
 @section('frontend_js')
-    
+
 @endsection

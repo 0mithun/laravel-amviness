@@ -14,7 +14,7 @@
     <nav class="breadcrumb-nav mb-6">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="{{ route('frontend.home') }}">Home</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
                 <li>Blog Grid</li>
             </ul>
@@ -33,8 +33,8 @@
 
             <div class="row">
                 @foreach ($blogs as $blog)
-                    
-                
+
+
                 <div class="col-4">
 
                     <article class="post post-grid-type grid-item overlay-zoom fashion" style="">
@@ -63,7 +63,7 @@
                     </article>
 
 
-                
+
                 </div>
                 @endforeach
             </div>

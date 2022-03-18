@@ -15,7 +15,7 @@
         <nav class="breadcrumb-nav mb-10 pb-1">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href="{{ route('frontend.home') }}">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li>Contact Us</li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@
                         Information
                     </h3>
                     <p class="text-center">Lorem ipsum dolor sit amet,
-                        consectetur 
+                        consectetur
                         adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                 </section>
                 <!-- End of Contact Title Section -->
@@ -58,7 +58,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">E-mail Address</h4>
-                                    <p>{{ settingman()->email }}</p>
+                                    <p>{{ $setting->email }}</p>
                                 </div>
                             </div>
                             <div class="swiper-slide icon-box text-center icon-box-primary">
@@ -67,7 +67,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">Phone Number</h4>
-                                    <p>{{ settingman()->phone }}</p>
+                                    <p>{{ $setting->phone }}</p>
                                 </div>
                             </div>
                             <div class="swiper-slide icon-box text-center icon-box-primary">
@@ -76,7 +76,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">Address</h4>
-                                    <p>{{ settingman()->address }}</p>
+                                    <p>{{ $setting->address }}</p>
                                 </div>
                             </div>
                             <div class="swiper-slide icon-box text-center icon-box-primary">
@@ -85,7 +85,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">Fax</h4>
-                                    <p> {{ settingman()->fax }} </p>
+                                    <p> {{ $setting->fax }} </p>
                                 </div>
                             </div>
                         </div>

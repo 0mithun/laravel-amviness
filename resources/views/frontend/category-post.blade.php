@@ -15,7 +15,7 @@
     <nav class="breadcrumb-nav mb-6">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href=" {{ route('frontend.home') }} ">Home</a></li>
+                <li><a href=" {{ route('home') }} ">Home</a></li>
                 <li><a href=" {{ route('frontend.blog') }} ">Blog</a></li>
                 <li>List</li>
             </ul>
@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row gutter-lg">
                 <div class="main-content">
-                    @foreach ($posts as $post)                    
+                    @foreach ($posts as $post)
                     <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
                         <figure class="post-media br-sm">
                             <a href="{{ route('frontend.singleblog',$post->id) }}">
@@ -206,7 +206,7 @@
                                 <div class="widget-body">
                                     <p class="text-default mb-0">Fringilla urna porttitor rhoncus dolor purus.
                                         Luctus veneneratis lectus magna fring.
-                                        Suspendisse potenti. Sed egestas, ante et 
+                                        Suspendisse potenti. Sed egestas, ante et
                                         vulputate volutpat, uctus metus libero.</p>
                                 </div>
                             </div>

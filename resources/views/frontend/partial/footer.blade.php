@@ -65,17 +65,30 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
+
+                    @auth
+                        <div class="widget">
+                            <h4 class="#">My Account</h4>
+                            <ul class="widget-body">
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="cart.html">View Cart</a></li>
+                                <li><a href="{{ route('login') }}">Sign In</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="{{ route('frontend.wishlist') }}">My Wishlist</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    @endauth
+
+                    @guest
                     <div class="widget">
-                        <h4 class="#">My Account</h4>
                         <ul class="widget-body">
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="cart.html">View Cart</a></li>
                             <li><a href="{{ route('login') }}">Sign In</a></li>
                             <li><a href="#">Help</a></li>
-                            <li><a href="{{ route('frontend.wishlist') }}">My Wishlist</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                         </ul>
                     </div>
+                    @endguest
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="widget">
