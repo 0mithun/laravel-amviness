@@ -18,7 +18,7 @@
     "Priceplan": true,
     "Product": true,
     "Review": true,
-    "Setting": true,
+    "Setting": false,
     "Tag": true,
     "Team": true,
     "Testimonial": true,

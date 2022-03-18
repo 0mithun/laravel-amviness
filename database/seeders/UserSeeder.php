@@ -31,17 +31,6 @@ class UserSeeder extends Seeder
         $role = Role::first();
 
         $admin = new Admin();
-        $admin->name = "Zakir Soft";
-        $admin->email = "developer@mail.com";
-        $admin->image = "backend/image/default.png";
-        $admin->password = bcrypt('password');
-        $admin->email_verified_at = Carbon::now();
-        $admin->remember_token = Str::random(10);
-        $admin->save();
-
-        $admin->assignRole($role);
-
-        $admin = new Admin();
         $admin->name = "Admin";
         $admin->email = "admin@mail.com";
         $admin->image = "backend/image/default.png";
