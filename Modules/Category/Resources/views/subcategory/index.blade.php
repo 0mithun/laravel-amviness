@@ -1,5 +1,5 @@
 @php
-    $user = auth()->user();
+    $user = x-admin.sidebar-dropdown)->user();
 @endphp
 
 @extends('admin.layouts.app')
