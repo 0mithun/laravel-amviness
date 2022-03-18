@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Setting;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Modules\Category\Entities\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,7 +29,9 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         $setting = Setting::first();
+        $categories = Category::oldest('order')->get();
         view()->share('setting', $setting);
+        view()->share('categories', $categories);
         session()->put('commingsoon_mode', $setting->commingsoon_mode);
     }
 }

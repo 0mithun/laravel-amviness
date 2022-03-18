@@ -29,7 +29,7 @@ class FrontendController extends Controller
         $data['products'] = Product::whereStatus(1)->latest('id')->paginate(20);
         $data['brands'] = Brand::latest('id')->get();
         $data['blogs'] = Post::latest('id')->take(16)->get();
-        $data['categories'] = Category::oldest('order')->get();
+
 
         return view('frontend.index', $data);
     }

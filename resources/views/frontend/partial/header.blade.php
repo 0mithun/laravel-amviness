@@ -3,7 +3,7 @@
     <div class="header-top">
         <div class="container">
             <div class="header-left">
-                <p class="welcome-msg"> {{ settingman()->title }} </p>
+                <p class="welcome-msg"> {{  $setting->title }} </p>
             </div>
             <div class="header-right">
                 <!-- End of Dropdown Menu -->
@@ -11,9 +11,9 @@
                 <a href=" {{ route('frontend.blog') }} " class="d-lg-show">Blog</a>
                 <a href="{{ route('frontend.conatct') }}" class="d-lg-show">Contact Us</a>
                 <a href="{{ route('frontend.myaccount') }}" class="d-lg-show">My Account</a>
-                <a href="{{ route('frontend.customer.login') }}" class="d-lg-show">Sign In</a>
+                <a href="{{ route('login') }}" class="d-lg-show">Sign In</a>
                 <span class="delimiter d-lg-show">|</span>
-                <a href="{{ route('frontend.customerregister') }}" class="d-lg-show">Register</a>
+                <a href="{{ route('register') }}" class="d-lg-show">Register</a>
             </div>
         </div>
     </div>
@@ -24,8 +24,8 @@
             <div class="header-left mr-md-4">
                 <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
                 </a>
-                <a href="{{ route('frontend.home') }}" class="logo ml-lg-0">
-                    <img src="{{ asset(settingman()->logo)}}" alt="logo" width="144" height="45" />
+                <a href="{{ route('home') }}" class="logo ml-lg-0">
+                    <img src="{{ asset( $setting->logo_image_path)}}" alt="logo" width="144" height="45" />
                 </a>
                 <form method="get" action="#" class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
                     <div class="select-box">
@@ -150,7 +150,7 @@
 
                         <div class="dropdown-box">
                             <ul class="menu vertical-menu category-menu">
-                                @foreach (categories() as $category)
+                                @foreach ($categories as $category)
                                     <li>
                                         <a href="{{ route('frontend.product.category',$category->slug) }}">
                                             <i class="{{ $category->icon }}"></i> {{ $category->name }}
@@ -175,7 +175,7 @@
                     <nav class="main-nav">
                         <ul class="menu active-underline">
                             <li>
-                                <a href=" {{ route('frontend.home') }} ">Home</a>
+                                <a href=" {{ route('home') }} ">Home</a>
                             </li>
                             <li class="active">
                                 <a href=" {{ route('frontend.shop') }} ">Shop</a>

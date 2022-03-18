@@ -33,17 +33,17 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="widget widget-about">
-                        <a href="{{ route('frontend.home') }}" class="logo-footer">
-                            <img src="{{ asset(settingman()->logo)}}" alt="logo-footer" width="144" height="45" />
+                        <a href="{{ route('home') }}" class="logo-footer">
+                            <img src="{{ asset( $setting->logo_image_url)}}" alt="logo-footer" width="144" height="45" />
                         </a>
                         <div class="widget-body">
-                            <p class="widget-about-title">{{ settingman()->title }}</p>
-                            <a href="tel:18005707777" class="widget-about-call">{{ settingman()->phone }}</a>
-                            <p class="widget-about-desc"> {{ settingman()->address }}
+                            <p class="widget-about-title">{{ $setting->title }}</p>
+                            <a href="tel:18005707777" class="widget-about-call">{{ $setting->phone }}</a>
+                            <p class="widget-about-desc"> {{ $setting->address }}
                             </p>
                             <div class="social-icons social-icons-colored">
-                                <a href="{{ settingman()->facebook }}" class="social-icon social-facebook w-icon-facebook"></a>
-                                <a href="{{ settingman()->twitter }}" class="social-icon social-twitter w-icon-twitter"></a>
+                                <a href="{{ $setting->facebook }}" class="social-icon social-facebook w-icon-facebook"></a>
+                                <a href="{{ $setting->twitter }}" class="social-icon social-twitter w-icon-twitter"></a>
                                 <a href="#" class="social-icon social-instagram w-icon-instagram"></a>
                                 <a href="#" class="social-icon social-youtube w-icon-youtube"></a>
                                 <a href="#" class="social-icon social-pinterest w-icon-pinterest"></a>
@@ -70,7 +70,7 @@
                         <ul class="widget-body">
                             <li><a href="#">Track My Order</a></li>
                             <li><a href="cart.html">View Cart</a></li>
-                            <li><a href="{{ route('frontend.customer.login') }}">Sign In</a></li>
+                            <li><a href="{{ route('login') }}">Sign In</a></li>
                             <li><a href="#">Help</a></li>
                             <li><a href="{{ route('frontend.wishlist') }}">My Wishlist</a></li>
                             <li><a href="#">Privacy Policy</a></li>
