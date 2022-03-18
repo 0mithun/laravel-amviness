@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Product Attribute @endsection
 @section('breadcrumbs')
 <div class="row mb-2 mt-4">

@@ -13,8 +13,7 @@ use Modules\Coupon\Http\Controllers\CouponController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::prefix('coupon')->group(function () {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/coupon', ], function(){
     Route::get('/', [CouponController::class, 'index'])->name('coupon.index');
     Route::get('/create', [CouponController::class, 'create'])->name('coupon.create');
     Route::post('/store', [CouponController::class, 'store'])->name('coupon.store');
@@ -23,4 +22,5 @@ Route::prefix('coupon')->group(function () {
     Route::delete('/delete/{coupon}', [CouponController::class, 'destroy'])->name('coupon.delete');
     Route::delete('/multiple/destroy', [CouponController::class, 'multipleDestroy'])->name('coupon.multiple.delete');
     Route::get('/status', [CouponController::class, 'status'])->name('coupon.status.change');
+
 });

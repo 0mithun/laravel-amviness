@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Team List | Admin @endsection
 @section('content')
     <div class="container-fluid">

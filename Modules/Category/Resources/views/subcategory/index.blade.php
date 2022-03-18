@@ -2,7 +2,7 @@
     $user = auth()->user();
 @endphp
 
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 
 @section('title') {{ __('msg.subcategoryedit') }} List | Admin  @endsection
 

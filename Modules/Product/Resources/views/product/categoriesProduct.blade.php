@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Category Wise Products | Admin  @endsection
 @section('content')
 <div class="container-fluid">

@@ -14,14 +14,12 @@ use Modules\Blog\Http\Controllers\BlogController;
 |
 */
 
-Route::middleware(['auth'])->group(function() {
-    // Post Routes
-    Route::prefix('admin/blog')->group(function() {
-        Route::get('/',[BlogController::class, 'index'])->name('module.post.index');
+
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/blog'], function(){
+    Route::get('/',[BlogController::class, 'index'])->name('module.post.index');
         Route::get('/add',[BlogController::class, 'create'])->name('module.post.create');
         Route::post('/add',[BlogController::class, 'store'])->name('module.post.store');
         Route::get('/edit/{post}',[BlogController::class, 'edit'])->name('module.post.edit');
         Route::put('/update/{post}',[BlogController::class, 'update'])->name('module.post.update');
         Route::delete('/destroy/{post}',[BlogController::class, 'destroy'])->name('module.post.destroy');
-    });
 });

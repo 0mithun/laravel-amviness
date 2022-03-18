@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 
 @section('title') {{ __('msg.contactlist') }} | {{ __('msg.admin') }} @endsection
 

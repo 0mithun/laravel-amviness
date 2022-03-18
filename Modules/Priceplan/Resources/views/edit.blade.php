@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Edit Priceplan | Admin @endsection
 @section('content')
     <div class="container-fluid">

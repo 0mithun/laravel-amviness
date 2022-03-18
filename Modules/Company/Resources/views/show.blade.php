@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Company Show | Admin  @endsection
 @section('content')
 <div class="container-fluid">
@@ -10,7 +10,7 @@
                         <div class="card-block text-center">
                             <div class="m-b-25 mb-4"> <img width="200px" height="200px" src="{{ asset($company->logo) }}" class="img-radius" alt="User-Profile-Image"> </div>
                             <h5> {{ __('msg.company') }} {{ __('msg.name') }}</h5>
-                            <h6>{{ $company->name }}</h6> 
+                            <h6>{{ $company->name }}</h6>
                             <hr>
                             <ul class="social-link list-unstyled m-t-40 m-b-10">
                                 <li>

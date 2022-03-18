@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') {{ __('msg.categoryedit') }} | Admin @endsection
 @section('content')
     <div class="container-fluid">
@@ -70,7 +70,7 @@
     <!-- Bootstrap-Iconpicker -->
     <link rel="stylesheet"
         href="{{ asset('backend') }}/plugins/bootstrap-iconpicker/dist/css/bootstrap-iconpicker.min.css" />
-    <link rel="stylesheet" href="{{ asset('backend') }}/css/dropify.min.css"> 
+    <link rel="stylesheet" href="{{ asset('backend') }}/css/dropify.min.css">
 @endsection
 
 @section('script')

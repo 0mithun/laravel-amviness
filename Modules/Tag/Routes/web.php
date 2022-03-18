@@ -14,9 +14,9 @@ use Modules\Tag\Http\Controllers\TagController;
 |
 */
 
-Route::middleware(['auth'])->group(function() {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/tag', ], function(){
     // Tag Routes
-    Route::prefix('tag')->group(function() {
+
         Route::get('/',[TagController::class, 'index'])->name('module.tag.index');
         Route::get('/add',[TagController::class, 'create'])->name('module.tag.create');
         Route::post('/add',[TagController::class, 'store'])->name('module.tag.store');
@@ -24,5 +24,5 @@ Route::middleware(['auth'])->group(function() {
         Route::put('/update/{tag}',[TagController::class, 'update'])->name('module.tag.update');
         Route::delete('/destroy/{tag}',[TagController::class, 'destroy'])->name('module.tag.destroy');
         Route::delete('/tag/multiple/destroy',[TagController::class, 'multipleDestroy'])->name('module.tag.multiple.destroy');
-    });
+
 });

@@ -14,7 +14,9 @@ use Modules\Comment\Http\Controllers\CommentController;
 |
 */
 
-Route::prefix('comment')->name('comment.')->group(function() {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin', 'comment.'], function(){
     Route::get('/', [CommentController::class, 'index'])->name('index');
     Route::post('/store', [CommentController::class, 'store'])->name('store');
+
 });
+

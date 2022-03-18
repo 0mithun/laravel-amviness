@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Tag List | Admin @endsection
 @section('content')
     <div class="container-fluid">

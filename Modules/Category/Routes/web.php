@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Category\Http\Controllers\CategoryController;
 use Modules\Category\Http\Controllers\SubCategoryController;
 
-Route::middleware(['auth:super_admin'])->group(function() {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin'], function(){
     // Category Routes
     Route::prefix('category')->group(function() {
         Route::get('/',[CategoryController::class, 'index'])->name('module.category.index');

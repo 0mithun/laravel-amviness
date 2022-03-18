@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Attribute\Http\Controllers\AttributeController;
 use Modules\Attribute\Http\Controllers\AttributeValueController;
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () {
     Route::name('module.')->prefix('attributes')->group(function () {
         Route::get('/', [AttributeController::class, 'index'])->name('attributes.index');
         Route::get('create', [AttributeController::class, 'create'])->name('attributes.create');

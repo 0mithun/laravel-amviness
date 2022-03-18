@@ -16,9 +16,8 @@ use Modules\Product\Http\Controllers\ProductAttributeController;
 |
 */
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/product', ], function(){
     // Product Routes
-    Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('module.product.index');
         Route::get('/add', [ProductController::class, 'create'])->name('module.product.create');
         Route::get('/show/{product}', [ProductController::class, 'show'])->name('module.product.show');
@@ -43,5 +42,5 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::put('/attribute/value/update/{product_attribute}', [ProductAttributeController::class, 'update'])->name('product.attribute.update');
         Route::get('/fetch/attribute/value/value', [ProductAttributeController::class, 'fetch_attributes_value'])->name('fetch.attributes.value');
         Route::delete('/attribute/value/delete/{product_attribute}', [ProductAttributeController::class, 'destroy'])->name('product.attributes.destroy');
-    });
+
 });

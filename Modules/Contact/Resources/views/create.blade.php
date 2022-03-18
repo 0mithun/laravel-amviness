@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') {{ __('msg.create') }} | {{ __('msg.admin') }} @endsection
 @section('content')
     <div class="container-fluid">

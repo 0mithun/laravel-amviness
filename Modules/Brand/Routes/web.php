@@ -14,17 +14,16 @@ use Modules\Brand\Http\Controllers\BrandController;
 |
 */
 
-Route::middleware(['auth'])->group(function() {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/brand'], function(){
     // Category Routes
-    Route::prefix('brand')->group(function() {
-        Route::get('/',[BrandController::class, 'index'])->name('module.brand.index');
-        Route::get('/add',[BrandController::class, 'create'])->name('module.brand.create');
-        Route::post('/add',[BrandController::class, 'store'])->name('module.brand.store');
-        Route::get('/edit/{brand}',[BrandController::class, 'edit'])->name('module.brand.edit');
-        Route::put('/update/{brand}',[BrandController::class, 'update'])->name('module.brand.update');
-        Route::delete('/destroy/{brand}',[BrandController::class, 'destroy'])->name('module.brand.destroy');
-        Route::delete('/brand/multiple/destroy',[BrandController::class, 'multipleDestroy'])->name('module.brand.multiple.destroy');
-    });
+    Route::get('/',[BrandController::class, 'index'])->name('module.brand.index');
+    Route::get('/add',[BrandController::class, 'create'])->name('module.brand.create');
+    Route::post('/add',[BrandController::class, 'store'])->name('module.brand.store');
+    Route::get('/edit/{brand}',[BrandController::class, 'edit'])->name('module.brand.edit');
+    Route::put('/update/{brand}',[BrandController::class, 'update'])->name('module.brand.update');
+    Route::delete('/destroy/{brand}',[BrandController::class, 'destroy'])->name('module.brand.destroy');
+    Route::delete('/brand/multiple/destroy',[BrandController::class, 'multipleDestroy'])->name('module.brand.multiple.destroy');
+
 });
 
 

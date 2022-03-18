@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Tag Edit | Admin @endsection
 @section('content')
 <div class="container-fluid">

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Product List | Admin @endsection
 @section('content')
     <div class="container-fluid">
@@ -55,7 +55,7 @@
                                                     <td class="sorting_1 text-center">{{ $loop->index + 1 }}</td>
                                                     <td class="sorting_1 text-center" tabindex="0"><img width="60px"
                                                             height="60px" src="{{ asset($product->image) }}"
-                                                            class="rounded" alt="Product Image"></td>                                              
+                                                            class="rounded" alt="Product Image"></td>
 
 
                                                     <td class="sorting_1 text-center" tabindex="0">{{ $product->title }}

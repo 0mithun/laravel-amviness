@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') {{ __('msg.candidate') }} {{ __('msg.create') }} | {{ __('msg.admin') }} @endsection
 @section('content')
     <div class="container-fluid">
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row mt-3">
                                 <div class="col-6 offset-3 text-center">
                                     <button type="submit" class="btn btn-success">

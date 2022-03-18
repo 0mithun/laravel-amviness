@@ -14,9 +14,9 @@ use Modules\Portfolio\Http\Controllers\PortfolioController;
 |
 */
 
-Route::middleware(['auth'])->group(function() {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/portfolio', ], function(){
     // Job Routes
-    Route::prefix('portfolio')->group(function() {
+
         Route::get('/',[PortfolioController::class, 'index'])->name('module.portfolio.index');
         Route::get('/add',[PortfolioController::class, 'create'])->name('module.portfolio.create');
         Route::post('/add',[PortfolioController::class, 'store'])->name('module.portfolio.store');
@@ -24,5 +24,5 @@ Route::middleware(['auth'])->group(function() {
         Route::put('/update/{portfolio}',[PortfolioController::class, 'update'])->name('module.portfolio.update');
         Route::delete('/destroy/{portfolio}',[PortfolioController::class, 'destroy'])->name('module.portfolio.destroy');
         Route::delete('/portfolio/multiple/destroy',[PortfolioController::class, 'multipleDestroy'])->name('module.portfolio.multiple.destroy');
-    });
+
 });

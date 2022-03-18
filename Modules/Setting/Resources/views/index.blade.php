@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section('title') Website Settings | Admin @endsection
 @section('content')
     <div class="row">

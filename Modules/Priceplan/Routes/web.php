@@ -5,9 +5,9 @@ use Modules\Priceplan\Http\Controllers\PlanfeatureController;
 use Modules\Priceplan\Http\Controllers\PriceplanController;
 
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/priceplan', ], function(){
     // Priceplan  Routes
-    Route::prefix('priceplan')->group(function () {
+
         Route::get('/', [PriceplanController::class, 'index'])->name('module.priceplan.index');
         Route::get('/add', [PriceplanController::class, 'create'])->name('module.priceplan.create');
         Route::post('/add', [PriceplanController::class, 'store'])->name('module.priceplan.store');
@@ -22,5 +22,5 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/feature/add/{priceplan_id}', [PlanfeatureController::class, 'create'])->name('feature.priceplan.create');
         Route::post('/feature/add/{priceplan}', [PlanfeatureController::class, 'store'])->name('feature.priceplan.store');
-    });
+
 });

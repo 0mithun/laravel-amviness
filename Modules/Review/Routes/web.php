@@ -14,7 +14,8 @@ use Modules\Review\Http\Controllers\ReviewController;
 |
 */
 
-Route::prefix('review')->group(function () {
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/review', ], function(){
+
     Route::get('/', [ReviewController::class, 'index'])->name('review.index');
     Route::get('/create', [ReviewController::class, 'create'])->name('review.create');
     Route::post('/store', [ReviewController::class, 'store'])->name('review.store');
@@ -22,3 +23,4 @@ Route::prefix('review')->group(function () {
     Route::get('/edit/{review}', [ReviewController::class, 'edit'])->name('review.edit');
     Route::put('/update/{review}', [ReviewController::class, 'update'])->name('review.update');
 });
+

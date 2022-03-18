@@ -11,11 +11,14 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
 use Modules\Setting\Http\Controllers\SettingController;
 
-Route::prefix('setting')->group(function() {
+
+Route::group(['middleware' =>'auth:admin', 'prefix'=>'admin/setting', ], function(){
     Route::get('/',[SettingController::class, 'index'])->name('module.setting.index');
     Route::post('/add',[SettingController::class, 'store'])->name('module.setting.store');
     Route::put('/update/{setting}',[SettingController::class, 'update'])->name('module.setting.update');
     Route::delete('/destroy/{id}',[SettingController::class, 'destroy'])->name('module.setting.destroy');
+
 });
