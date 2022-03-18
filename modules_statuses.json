@@ -1,3 +1,27 @@
 {
-    "Language": true
+    "Language": true,
+    "Attribute": true,
+    "Banner": true,
+    "Blog": true,
+    "Brand": true,
+    "Candidate": true,
+    "Category": true,
+    "Comment": true,
+    "Company": true,
+    "Contact": true,
+    "Coupon": true,
+    "Faq": true,
+    "Installer": true,
+    "Job": true,
+    "Newsletter": true,
+    "Portfolio": true,
+    "Priceplan": true,
+    "Product": true,
+    "Review": true,
+    "Setting": true,
+    "Tag": true,
+    "Team": true,
+    "Testimonial": true,
+    "Theme": true,
+    "Wishlist": true
 }

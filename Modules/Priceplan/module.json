@@ -1,0 +1,13 @@
+{
+    "name": "Priceplan",
+    "alias": "priceplan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Priceplan\\Providers\\PriceplanServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
