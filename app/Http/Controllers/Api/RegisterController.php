@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Validator;
-use Modules\Banner\Entities\Banner;
 use Modules\Brand\Entities\Brand;
-use Modules\Category\Entities\Category;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Modules\Banner\Entities\Banner;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Modules\Product\Entities\Product;
+use Illuminate\Database\QueryException;
+use Modules\Category\Entities\Category;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -39,9 +40,9 @@ class RegisterController extends Controller
         }
 
         $user = User::create($request->only(['name', 'email']) + ['password'=> bcrypt($request->password)]);
-        $user->token = $user->createToken('MyApp')->plainTextToken;
+        $user->token = JWTAuth::fromUser($user);
 
-        return $this->sendResponse($user, 'User register successfully.');
+        return response(['data'=>$user, 'message'=> 'User register successfully.'], 201);
     }
 
 
@@ -57,6 +58,7 @@ class RegisterController extends Controller
         $credentials = $request->only('email', 'password');
 
         if ($token = $this->guard()->attempt($credentials)) {
+
             return $this->respondWithToken($token);
         }
 
