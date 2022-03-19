@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\MobileAppController;
 
 /*
@@ -15,8 +16,13 @@ use App\Http\Controllers\Api\MobileAppController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('register', [RegisterController::class, 'register'])->name('api.register');
+Route::post('login', [RegisterController::class, 'login'])->name('api.login');
+
+Route::group(['middleware'=>'auth:api'], function(){
+    Route::get('/me', [RegisterController::class, 'me']);
+    Route::post('/logout', [RegisterController::class, 'logout']);
+
 });
 
 

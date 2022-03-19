@@ -17,26 +17,6 @@ use Modules\Product\Entities\Product;
 
 class RegisterController extends Controller
 {
-
-
-    /**
-     *
-     * @return \Illuminate\Http\Response
-     * @author Asif Ul Islam <aseasifislam@gmail.com>
-     * @return void
-     */
-    public function sendResponse($result, $message)
-    {
-        $response = [
-            'success' => true,
-            'data'    => $result,
-            'message' => $message,
-        ];
-        return response()->json($response, 200);
-    }
-
-
-
     /**
      *
      * @return \Illuminate\Http\Response
@@ -53,86 +33,91 @@ class RegisterController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Validation Error.', $validator->errors());
-        }
-
-        $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
-        $success['token'] =  $user->createToken('MyApp')->plainTextToken;
-        $success['name'] =  $user->name;
-        $success['email'] =  $user->email;
-
-        return $this->sendResponse($success, 'User register successfully.');
-    }
-
-
-
-
-
-    /**
-     *
-     * @param  User
-     * @return \Illuminate\Http\Response
-     * @author Asif Ul Islam <aseasifislam@gmail.com>
-     * @return void
-     */
-    function login(Request $request)
-    {
-        $user = User::where('email', $request->email)->first();
-        if (!$user || !Hash::check($request->password, $user->password)) {
             return response([
-                'message' => ['These credentials do not match our records.']
-            ], 404);
+                'errors'    =>  $validator->errors()
+            ], 422);
         }
 
-        $token = $user->createToken('my-app-token')->plainTextToken;
+        $user = User::create($request->only(['name', 'email']) + ['password'=> bcrypt($request->password)]);
+        $user->token = $user->createToken('MyApp')->plainTextToken;
 
-        $response = [
-            'name' => $user->name,
-            'email' => $user->email,
-            'token' => $token
-        ];
-
-        return response($response, 201);
+        return $this->sendResponse($user, 'User register successfully.');
     }
 
 
+    /**
+     * Get a JWT token via given credentials.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if ($token = $this->guard()->attempt($credentials)) {
+            return $this->respondWithToken($token);
+        }
+
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
 
     /**
+     * Get the authenticated User
      *
-     * @param  User
-     * @return \Illuminate\Http\Response
-     * @author Asif Ul Islam <aseasifislam@gmail.com>
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function me()
     {
-        $user = User::first();
-
-        $data = [
-            'name' => $user->name,
-            'email' => $user->email
-        ];
-        try {
-            return sendSuccessResponse($data);
-        } catch (QueryException $e) {
-            return sendErrorResponse("Something went wrong", $e->getMessage(), 500);
-        }
+        return response()->json($this->guard()->user());
     }
 
-
-
-
-    public function logout(Request $request)
+    /**
+     * Log the user out (Invalidate the token)
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
     {
-        $user = Auth::guard('api')->user();
+        $this->guard()->logout();
 
-        if ($user) {
-            $user->token = null;
-            $user->save();
-        }
+        return response()->json(['message' => 'Successfully logged out']);
+    }
 
-        return response()->json(['data' => 'User logged out.'], 200);
+    /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh()
+    {
+        return $this->respondWithToken($this->guard()->refresh());
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => $this->guard()->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return auth('api');
     }
 }

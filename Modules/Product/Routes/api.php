@@ -30,15 +30,6 @@ use Modules\Product\Http\Controllers\Api\ProductController;
 // Route::get('/frontend/product', [ProductController::class, 'index'])->name('frontend.api.product.index');
 
 
-Route::prefix('signin')->group(function () {
-    Route::post('signin', [RegisterController::class, 'register'])->name('frontend.api.register');
-    Route::post('signup', [RegisterController::class, 'login'])->name('frontend.api.login');
-});
-
-// Route::post('/me',[RegisterController::class, 'me'])->name('customer.me')->middleware('auth:customer_api');
-
-// Route::post('me', [RegisterController::class, 'me'])->name('frontend.me')->middleware('auth:sanctum');
-Route::post('/me', [RegisterController::class, 'me']);
 
 
 

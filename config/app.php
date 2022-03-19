@@ -168,6 +168,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         browner12\helpers\HelperServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
