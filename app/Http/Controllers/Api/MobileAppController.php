@@ -26,7 +26,7 @@ class MobileAppController extends Controller
      * @return Modules\Banner\Entities\Category
      * @return Modules\Banner\Entities\Product
      * @author Asif Ul Islam <aseasifislam@gmail.com>
-     * @return void 
+     * @return void
      */
     public function index()
     {

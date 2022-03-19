@@ -76,13 +76,13 @@
             </ul>
 
             <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-legacy nav-flat"
-        data-widget="treeview" role="menu" data-accordion="false">
-        @if ($user->can('dashboard.view'))
-            <x-admin.sidebar-list :linkActive="Route::is('home') ? true : false" route="home"
-                icon="fas fa-tachometer-alt">
-                Dashboard
-            </x-admin.sidebar-list>
-        @endif
+            data-widget="treeview" role="menu" data-accordion="false">
+            {{-- @if ($user->can('dashboard.view'))
+                <x-admin.sidebar-list :linkActive="Route::is('home') ? true : false" route="home"
+                    icon="fas fa-tachometer-alt">
+                    Dashboard
+                </x-admin.sidebar-list>
+            @endif --}}
 
         <!-- Company Module -->
         {{-- @if (Module::collections()->has('Company'))

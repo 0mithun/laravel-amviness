@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\URL;
+
 /**
  * Response success data collection
  *
@@ -83,4 +85,57 @@ function flashWarning(string $message)
     } else {
         return session()->flash('warning', 'please try again');
     }
+}
+
+
+
+
+function socialMediaShareLinks(string $path, string $subject)
+{
+    $base_url = URL::to('/');
+
+    return [
+        'facebook' => 'https://www.facebook.com/sharer/sharer.php?u=' . $base_url . $path . $subject,
+        'twitter' => 'https://twitter.com/intent/tweet?text=' . $base_url . $path . $subject,
+        'linkedin' => 'https://www.linkedin.com/shareArticle?mini=true&url=' . $base_url . $path . $subject,
+        'gmail' => 'https://mail.google.com/mail/u/0/?ui=2&fs=1&tf=cm&su=' . $base_url . $path . $subject,
+        'whatsapp' => 'https://wa.me/?text=' . $base_url . $path . $subject
+    ];
+}
+
+
+
+/**
+ *
+ * @param  response
+ * @return \Illuminate\Http\Response
+ * @author Asif Ul Islam <aseasifislam@gmail.com>
+ * @return void
+ */
+function  sendSuccessResponse($data, $msg = "Data Retrive Successfully", $code = 200)
+{
+    return response()->json([
+        'success' => true,
+        'message' => $msg,
+        'code' => $code,
+        'result' => $data
+    ], $code);
+}
+
+
+/**
+ *
+ * @param  response
+ * @return \Illuminate\Http\Response
+ * @author Asif Ul Islam <aseasifislam@gmail.com>
+ * @return void
+ */
+function  sendErrorResponse($data = [], $msg = "Something Went wrong", $code = 500)
+{
+    return response()->json([
+        'success' => false,
+        'message' => $msg,
+        'code' => $code,
+        'result' => $data
+    ], $code);
 }
