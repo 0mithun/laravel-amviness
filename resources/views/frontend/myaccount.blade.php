@@ -55,7 +55,8 @@ crossorigin="anonymous">
                             <a href="{{ route('frontend.wishlist') }}" class="nav-link">Wishlist1</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#account-details" class="nav-link">Logout</a>
+                            <a href="#account-details" class="nav-link" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Logout</a>
                         </li>
                     </ul>
 
@@ -66,7 +67,8 @@ crossorigin="anonymous">
                                 <span class="text-dark font-weight-bold"> {{ auth()->user()->name }} </span>
                                 (not
                                 <span class="text-dark font-weight-bold">{{ auth()->user()->name }}</span>?
-                                <a href="#" class="text-primary">Log out</a>)
+                                <a href="#" class="text-primary" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Log out</a>)
                             </p>
 
                             <p class="mb-4">
@@ -142,7 +144,8 @@ crossorigin="anonymous">
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
                                     <a href="#">
-                                        <div class="icon-box text-center">
+                                        <div class="icon-box text-center" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
                                             <span class="icon-box-icon icon-logout">
                                                 <i class="w-icon-logout"></i>
                                             </span>
@@ -410,4 +413,9 @@ crossorigin="anonymous">
         <!-- End of PageContent -->
     </main>
     <!-- End of Main -->
+
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 @endsection

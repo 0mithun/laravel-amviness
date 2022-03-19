@@ -11,7 +11,7 @@
                 <a href=" {{ route('frontend.blog') }} " class="d-lg-show">Blog</a>
                 <a href="{{ route('frontend.conatct') }}" class="d-lg-show">Contact Us</a>
                 @auth
-                <a href="{{ route('frontend.myaccount') }}" class="d-lg-show">My Account</a>
+                    <a href="{{ route('frontend.myaccount') }}" class="d-lg-show">My Account</a>
                 @endauth
                 @guest
                     <a href="{{ route('login') }}" class="d-lg-show">Sign In</a>

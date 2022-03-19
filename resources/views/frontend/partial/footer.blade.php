@@ -72,7 +72,6 @@
                             <ul class="widget-body">
                                 <li><a href="#">Track My Order</a></li>
                                 <li><a href="cart.html">View Cart</a></li>
-                                <li><a href="{{ route('login') }}">Sign In</a></li>
                                 <li><a href="#">Help</a></li>
                                 <li><a href="{{ route('frontend.wishlist') }}">My Wishlist</a></li>
                                 <li><a href="#">Privacy Policy</a></li>

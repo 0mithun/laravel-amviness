@@ -326,14 +326,23 @@
                                 <li><a href="{{ route('frontend.about') }}">About Us</a></li>
                                 <li><a href="become-a-vendor.html">Become A Vendor</a></li>
                                 <li><a href="#">Contact Us</a></li>
+                                @guest
                                 <li><a href="login.html">Login</a></li>
+
+                                @endguest
                                 <li><a href="faq.html">FAQs</a></li>
                                 <li><a href="error-404.html">Error 404</a></li>
                                 <li><a href="coming-soon.html">Coming Soon</a></li>
                                 <li><a href="wishlist.html">Wishlist</a></li>
                                 <li><a href="cart.html">Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
+
+                                @auth
+
                                 <li><a href="my-account.html">My Account</a></li>
+                                @endauth
+
+
                             </ul>
                         </li>
                         <li>

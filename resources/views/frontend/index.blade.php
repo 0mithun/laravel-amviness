@@ -71,10 +71,14 @@
                         <span class="divider d-lg-show"></span>
                         <a href=" {{ route('frontend.blog') }} " class="d-lg-show">Blog</a>
                         <a href="{{ route('frontend.conatct') }}" class="d-lg-show">Contact Us</a>
-                        <a href="{{ route('frontend.myaccount') }}" class="d-lg-show">My Account</a>
-                        <a href="{{ route('login') }}"class="d-lg-show">Sign In</a>
-                        <span class="delimiter d-lg-show">|</span>
-                        <a href="{{ route('register') }}"class="d-lg-show">Register</a>
+                        @auth
+                            <a href="{{ route('frontend.myaccount') }}" class="d-lg-show">My Account</a>
+                        @endauth
+                        @guest
+                            <a href="{{ route('login') }}" class="d-lg-show">Sign In</a>
+                            <span class="delimiter d-lg-show">|</span>
+                            <a href="{{ route('register') }}" class="d-lg-show">Register</a>
+                        @endguest
                     </div>
                 </div>
             </div>
